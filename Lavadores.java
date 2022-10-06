@@ -14,7 +14,7 @@ ArrayList<String> identificacion = new ArrayList<String>();
 ArrayList<String> fechaNacimiento = new ArrayList<String>();
 ArrayList<String> direccion = new ArrayList<String>();
 
-ArrayList<int> saldo = new ArrayList<int>();
+ArrayList<Integer> saldo = new ArrayList<Integer>();
 }
 
 
