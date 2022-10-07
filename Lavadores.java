@@ -17,11 +17,8 @@ ArrayList<String> direccion = new ArrayList<String>();
 ArrayList<Integer> saldo = new ArrayList<Integer>();
 static int numClientes = 0;
 
+ //ListarClientes-CorrecionEnArrays
 
- ListarClientes-CorrecionEnArrays
-
-ArrayList<Integer> saldo = new ArrayList<Integer>();
- main
 
 static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 static PrintStream out = System.out;
@@ -33,7 +30,7 @@ static PrintStream out = System.out;
 //Registrar clientes
 
 public static void registrarCliente(ArrayList<String> nombre, ArrayList<String> edad, ArrayList<String> fechaNacimiento, ArrayList<String> direccion, ArrayList<String> identificacion) throws IOException {
- ListarClientes-CorrecionEnArrays
+ 
 
     out.println("Ingrese la cantidad de clientes que desea registrar.");
     int numClientes = Integer.parseInt(System.console().readLine());
@@ -42,7 +39,6 @@ public static void registrarCliente(ArrayList<String> nombre, ArrayList<String> 
     for (int i = 0; i < numClientes; i++) {
 
 
- main
 out.println("Ingrese su nombre ");
  nombre.add(in.readLine());
  out.println("Ingrese su edad");
@@ -56,17 +52,10 @@ direccion.add(in.readLine());
 
 out.println("¡Felicidades! Su usuario ha sido creado");
 
- ListarClientes-CorrecionEnArrays
     }
 
 }
 
-
-
-}
-
-}
- main
 //Listar clientes
 
 public static void listarCliente(ArrayList<String> nombre, ArrayList<String> edad, ArrayList<String> fechaNacimiento, ArrayList<String> direccion, ArrayList<String> identificacion, int numClientes) throws IOException {
