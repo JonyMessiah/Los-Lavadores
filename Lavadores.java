@@ -17,7 +17,7 @@ ArrayList<String> direccion = new ArrayList<String>();
 
 ArrayList<Integer> saldo = new ArrayList<Integer>();
 
-static int numClientes;
+
 
 static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 static PrintStream out = System.out;
@@ -31,7 +31,7 @@ static PrintStream out = System.out;
 public static void registrarCliente(ArrayList<String> nombre, ArrayList<String> edad, ArrayList<String> fechaNacimiento, ArrayList<String> direccion, ArrayList<String> identificacion) throws IOException {
 
     out.println("Ingrese la cantidad de clientes que desea registrar.");
-    numClientes = Integer.parseInt(System.console().readLine());
+    int numClientes = Integer.parseInt(System.console().readLine());
 
     for (int i = 0; i < numClientes; i++) {
 
