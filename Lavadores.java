@@ -14,8 +14,8 @@ ArrayList<String> edad = new ArrayList<String>();
 ArrayList<String> identificacion = new ArrayList<String>();
 ArrayList<String> fechaNacimiento = new ArrayList<String>();
 ArrayList<String> direccion = new ArrayList<String>();
-
 ArrayList<Integer> saldo = new ArrayList<Integer>();
+static int numClientes = 0;
 
 
 
@@ -33,6 +33,7 @@ public static void registrarCliente(ArrayList<String> nombre, ArrayList<String> 
     out.println("Ingrese la cantidad de clientes que desea registrar.");
     int numClientes = Integer.parseInt(System.console().readLine());
 
+    
     for (int i = 0; i < numClientes; i++) {
 
 out.println("Ingrese su nombre ");
