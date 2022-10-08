@@ -15,8 +15,12 @@ static ArrayList<String> identificacion = new ArrayList<String>();
 static ArrayList<String> fechaNacimiento = new ArrayList<String>();
 static ArrayList<String> direccion = new ArrayList<String>();
 
+
 static ArrayList<Integer> saldo = new ArrayList<Integer>();
 static ArrayList<Integer> numeroCuenta = new ArrayList<Integer>();
+
+static ArrayList<Integer> saldo = new ArrayList<Integer>();
+
 static int numClientes = 0;
 
  //ListarClientes-CorrecionEnArrays
@@ -64,7 +68,11 @@ public static void listarCliente(ArrayList<String> nombre, ArrayList<String> eda
     out.println("A continuación se presentaran los datos de los clientes registrados actualmente.");
     
     for (int i = 0; i < numClientes; i++) {
+
         out.println("El numero del cliente es: " + i + "\n El nombre del cliente es: " +nombre.get(i) + " \n La edad del cliente es: " +edad.get(i) + " \n La fecha de nacimiento del cliente es: " +fechaNacimiento.get(i) + " \n La identificación del cliente es: " +identificacion.get(i) + " \n La direccion del cliente es: " +direccion.get(i));
+
+        out.println("El numero del cliente es: " + i + "el nombre del cliente es: " +nombre.get(i) + " \n La edad del cliente es: " +edad.get(i) + " \n La fecha de nacimiento del cliente es: " +fechaNacimiento.get(i) + " \n La identificación del cliente es: " +identificacion.get(i) + " \n La direccion del cliente es: " +direccion.get(i));
+
     }
     
     }
@@ -150,6 +158,7 @@ public static void menu() throws NumberFormatException, IOException {
 
             case 3: {
 
+
                 crearCuenta(numeroCuenta, saldo);
               
 
@@ -187,7 +196,6 @@ public static void menu() throws NumberFormatException, IOException {
         }
 
 }
-
 
 public static void main(String[] args) throws NumberFormatException, IOException
 {
