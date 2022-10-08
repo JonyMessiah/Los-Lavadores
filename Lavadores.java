@@ -119,8 +119,37 @@ else {
 
 //Realizar deposito
 
+public static void deposito (ArrayList<Integer> saldo, ArrayList<Integer> numeroCuenta){
+
+
+    out.println("Digite el numero de cuenta al cual desea depositarle.");
+
+    int x=Integer.parseInt(System.console().readLine());
+
+    //Localiza el indice en base al elemento (numero de cuenta)
+    int y= numeroCuenta.indexOf(x);
+    out.println("Digite la cantidad que desea depositar.");
+    //Calculos del nuevo salario.
+    int depositoCantidad=Integer.parseInt(System.console().readLine());
+    int salarioAnterior=saldo.get(y);
+    int nuevoSaldo = salarioAnterior + depositoCantidad;
+    //Se reemplaza el anterior elemento por uno nuevo.
+    saldo.set(y,nuevoSaldo);
+
+
+    out.println("Su nuevo saldo es: " +saldo.get(y));
+
+}
+
 //Realizar retiro
 
+public static void retiro (ArrayList<Integer> saldo, ArrayList<Integer> numeroCuenta){
+out.println("Digite el numero de cuenta al cual desea retirarle.");
+    int x=Integer.parseInt(System.console().readLine());
+    saldo.indexOf(x);
+    out.println("Digite la cantidad que desea retirar.");
+
+}
 //Mostrar saldo
 
 //Menu
@@ -159,13 +188,13 @@ public static void menu() throws NumberFormatException, IOException {
 
             case 4: {
 
-              
+              deposito(saldo, numeroCuenta);
 
                 break;
             }
             case 5: {
 
-           
+           retiro(saldo, numeroCuenta);
 
                 break;
             }
