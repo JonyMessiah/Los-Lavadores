@@ -35,14 +35,16 @@ public static void registrarCliente(ArrayList<String> nombre, ArrayList<String> 
 
             //Comprueba que la identificacion no se encuentre dentro del array.
            out.println("Ingrese su identificación");
-           String id = System.console().readLine();
-           boolean repetido = identificacion.contains(id);
+           String idRepetido = System.console().readLine();
+           boolean repetido = identificacion.contains(idRepetido);
            
            if (repetido) {
             out.println("Ingreso una identificacion repetida. Se le devolvera al menu los cambios en este cliente no seran guardados. ");
             i=numClientes+1;
 
           } else {
+
+            identificacion.add(idRepetido);
             out.println("Ingrese su nombre ");
             nombre.add(in.readLine());
             out.println("Ingrese su edad");
@@ -79,14 +81,19 @@ public static void crearCuenta(ArrayList<Integer> numeroCuenta, ArrayList<Intege
 
     out.println("Ingrese la cantidad de cuentas que desea registrar.");
     numClientes = Integer.parseInt(System.console().readLine());
-
-    
     for (int i = 0; i < numClientes; i++) {
 
+out.println("Ingrese el numero de cuenta que desea asignar. Debe de tener 7 digitos.");
 
-out.println("Ingrese el numero de cuenta que desea asignar debe de tener 7 digitos.");
+           int numeroRepetido = Integer.parseInt(System.console().readLine());
+           boolean repetido = numeroCuenta.contains(numeroRepetido);
+           if (repetido) {
+            out.println("Ingreso un numero de cuenta repetido. Se le devolvera al menu los cambios en esta cuenta no seran guardados. ");
+            i=numClientes+1;
 
-numeroCuenta.add(Integer.parseInt(System.console().readLine()));
+          } else {
+
+        numeroCuenta.add(numeroRepetido);
 
 //Calculo para saber la cantidad de digitos que posee el numero que puso el usuario.
 int x =numeroCuenta.get(0);
@@ -97,21 +104,32 @@ while (x != 0) {
 }
 
 //Comprueba si la cantidad de digitos es valida, sino le dara un mensaje de error.
+
 if (digitos == 7) {
 
  out.println("Por favor, digite cuanto quiere depositar debe de ser igual o mayor a 50 000 colones.");
  saldo.add(Integer.parseInt(System.console().readLine()));
+
 if (saldo.get(i) >= 50000) {
     out.println("Se ha realizado la transferencia exitosamente. \n Su cuenta ha sido creada con exito.");
+
+} else {
+    out.println("Ha digitado un valor menor a 50000 se le devolvera al menu. Los cambios en esta cuenta no se guardaran.");
+    saldo.remove(i);
+    numeroCuenta.remove(i);
+    i=numClientes+1;
+
 }
 
 } else {
     out.println("Ha digitado un valor no valido, se le devolvera al menu.");
-    saldo.add(0);
+    saldo.remove(i);
+    numeroCuenta.remove(i);
     i=numClientes+1;
 }
 
     }
+}
 
     }
 
