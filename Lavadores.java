@@ -20,6 +20,10 @@ static ArrayList<Integer> saldo = new ArrayList<Integer>();
 static ArrayList<Integer> numeroCuenta = new ArrayList<Integer>();
 
 static ArrayList<Integer> saldo = new ArrayList<Integer>();
+static ArrayList<Integer> numeroCuenta = new ArrayList<Integer>();
+
+static ArrayList<Integer> saldo = new ArrayList<Integer>();
+
 
 static int numClientes = 0;
 
@@ -70,8 +74,12 @@ public static void listarCliente(ArrayList<String> nombre, ArrayList<String> eda
     for (int i = 0; i < numClientes; i++) {
 
         out.println("El numero del cliente es: " + i + "\n El nombre del cliente es: " +nombre.get(i) + " \n La edad del cliente es: " +edad.get(i) + " \n La fecha de nacimiento del cliente es: " +fechaNacimiento.get(i) + " \n La identificación del cliente es: " +identificacion.get(i) + " \n La direccion del cliente es: " +direccion.get(i));
+=======
+
+        out.println("El numero del cliente es: " + i + "\n El nombre del cliente es: " +nombre.get(i) + " \n La edad del cliente es: " +edad.get(i) + " \n La fecha de nacimiento del cliente es: " +fechaNacimiento.get(i) + " \n La identificación del cliente es: " +identificacion.get(i) + " \n La direccion del cliente es: " +direccion.get(i));
 
         out.println("El numero del cliente es: " + i + "el nombre del cliente es: " +nombre.get(i) + " \n La edad del cliente es: " +edad.get(i) + " \n La fecha de nacimiento del cliente es: " +fechaNacimiento.get(i) + " \n La identificación del cliente es: " +identificacion.get(i) + " \n La direccion del cliente es: " +direccion.get(i));
+
 
     }
     
@@ -87,7 +95,11 @@ public static void crearCuenta(ArrayList<Integer> numeroCuenta, ArrayList<Intege
     for (int i = 0; i < numClientes; i++) {
 
 
+
+out.println("Ingrese el numero de cuenta que desea asignar debe de tener 7 digitos.");
+
 out.println("Ingrese el numero de cuenta que desea asignar debe de tener 7 digitos..");
+
 numeroCuenta.add(Integer.parseInt(System.console().readLine()));
 
 //Calculo para saber la cantidad de digitos que posee el numero que puso el usuario.
@@ -97,6 +109,10 @@ while (x != 0) {
     x = x / 10;
     ++digitos;
 }
+
+
+//Comprueba si la cantidad de digitos es valida, sino le dara un mensaje de error.
+=======
 
 if (digitos == 7) {
 
@@ -126,8 +142,52 @@ else {
 
 //Realizar deposito
 
+public static void deposito (ArrayList<Integer> saldo, ArrayList<Integer> numeroCuenta){
+
+    out.println("Digite el numero de cuenta al cual desea depositarle.");
+    int x=Integer.parseInt(System.console().readLine());
+    //Localiza el indice en base al elemento (numero de cuenta)
+    int y= numeroCuenta.indexOf(x);
+    out.println("Digite la cantidad que desea depositar.");
+    //Calculos del nuevo salario.
+    int depositoCantidad=Integer.parseInt(System.console().readLine());
+
+    if (depositoCantidad>0) {
+    int salarioAnterior=saldo.get(y);
+    int nuevoSaldo = salarioAnterior + depositoCantidad;
+    //Se reemplaza el anterior elemento por uno nuevo.
+    saldo.set(y,nuevoSaldo);
+    out.println("Su nuevo saldo es: " +saldo.get(y));
+    } else {
+        out.println("No se pueden realizar depositos que son 0 o menos. Se le devolvera al menú");
+
+    }
+
+}
+
+
 //Realizar retiro
 
+public static void retiro (ArrayList<Integer> saldo, ArrayList<Integer> numeroCuenta){
+out.println("Digite el numero de cuenta al cual desea retirarle.");
+    int x=Integer.parseInt(System.console().readLine());
+    saldo.indexOf(x);
+    //Localiza el indice en base al elemento (numero de cuenta)
+    int y= numeroCuenta.indexOf(x);
+    out.println("Digite la cantidad que desea retirar.");
+    int retiroCantidad=Integer.parseInt(System.console().readLine());
+
+    if (retiroCantidad>0) {
+    int salarioAnterior=saldo.get(y);
+    int nuevoSaldo = salarioAnterior - retiroCantidad;
+    //Se reemplaza el anterior elemento por uno nuevo.
+    saldo.set(y,nuevoSaldo);
+    out.println("Su nuevo saldo es: " +saldo.get(y));
+    } else {
+        out.println("No se pueden realizar retiros que son 0 o menos. Se le devolvera al menú.");
+
+    }
+}
 //Mostrar saldo
 
 //Menu
@@ -158,7 +218,6 @@ public static void menu() throws NumberFormatException, IOException {
 
             case 3: {
 
-
                 crearCuenta(numeroCuenta, saldo);
               
 
@@ -167,13 +226,13 @@ public static void menu() throws NumberFormatException, IOException {
 
             case 4: {
 
-              
+              deposito(saldo, numeroCuenta);
 
                 break;
             }
             case 5: {
 
-           
+           retiro(saldo, numeroCuenta);
 
                 break;
             }
@@ -196,6 +255,7 @@ public static void menu() throws NumberFormatException, IOException {
         }
 
 }
+
 
 public static void main(String[] args) throws NumberFormatException, IOException
 {
