@@ -4,6 +4,7 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.util.*;
 
+//Los lavadores.com - Tarea1
 
 public class Lavadores {
 
@@ -14,27 +15,12 @@ static ArrayList<String> edad = new ArrayList<String>();
 static ArrayList<String> identificacion = new ArrayList<String>();
 static ArrayList<String> fechaNacimiento = new ArrayList<String>();
 static ArrayList<String> direccion = new ArrayList<String>();
-
 static ArrayList<Integer> saldo = new ArrayList<Integer>();
 static ArrayList<Integer> numeroCuenta = new ArrayList<Integer>();
-
-
-static ArrayList<Integer> saldo = new ArrayList<Integer>();
-static ArrayList<Integer> numeroCuenta = new ArrayList<Integer>();
-
-static ArrayList<Integer> saldo = new ArrayList<Integer>();
-
-
-
 static int numClientes = 0;
-
- //ListarClientes-CorrecionEnArrays
-
 
 static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 static PrintStream out = System.out;
-
-//Los lavadores.com - Tarea1
 
 
 
@@ -43,29 +29,39 @@ static PrintStream out = System.out;
 public static void registrarCliente(ArrayList<String> nombre, ArrayList<String> edad, ArrayList<String> fechaNacimiento, ArrayList<String> direccion, ArrayList<String> identificacion) throws IOException {
  
 
-    out.println("Ingrese la cantidad de clientes que desea registrar.");
-    numClientes = Integer.parseInt(System.console().readLine());
+    out.println("Ingrese la cantidad de clientes que desea registrar. No puede registrar identificaciones repetidas.");
+    numClientes = Integer.parseInt(System.console().readLine());    
+         for (int i = 0; i < numClientes; i++) {
 
-    
-    for (int i = 0; i < numClientes; i++) {
+            //Comprueba que la identificacion no se encuentre dentro del array.
+           out.println("Ingrese su identificación");
+           String id = System.console().readLine();
+           boolean repetido = identificacion.contains(id);
+           
+           if (repetido) {
+            out.println("Ingreso una identificacion repetida. Se le devolvera al menu los cambios en este cliente no seran guardados. ");
+            i=numClientes+1;
 
-
-out.println("Ingrese su nombre ");
- nombre.add(in.readLine());
- out.println("Ingrese su edad");
- edad.add(in.readLine());
- out.println("Ingrese su fecha de nacimiento");
- fechaNacimiento.add(in.readLine());
- out.println("Ingrese su identificación");
-identificacion.add(in.readLine());
-out.println("Ingrese su direccion");
-direccion.add(in.readLine());
-
-out.println("¡Felicidades! Su usuario ha sido creado");
+          } else {
+            out.println("Ingrese su nombre ");
+            nombre.add(in.readLine());
+            out.println("Ingrese su edad");
+            edad.add(in.readLine());
+            out.println("Ingrese su fecha de nacimiento");
+            fechaNacimiento.add(in.readLine());
+           out.println("Ingrese su direccion");
+           direccion.add(in.readLine());
+        }
 
     }
+    
+    
 
 }
+
+
+
+
 
 //Listar clientes
 
@@ -74,14 +70,6 @@ public static void listarCliente(ArrayList<String> nombre, ArrayList<String> eda
     
     for (int i = 0; i < numClientes; i++) {
         out.println("El numero del cliente es: " + i + "\n El nombre del cliente es: " +nombre.get(i) + " \n La edad del cliente es: " +edad.get(i) + " \n La fecha de nacimiento del cliente es: " +fechaNacimiento.get(i) + " \n La identificación del cliente es: " +identificacion.get(i) + " \n La direccion del cliente es: " +direccion.get(i));
-
-
-        out.println("El numero del cliente es: " + i + "\n El nombre del cliente es: " +nombre.get(i) + " \n La edad del cliente es: " +edad.get(i) + " \n La fecha de nacimiento del cliente es: " +fechaNacimiento.get(i) + " \n La identificación del cliente es: " +identificacion.get(i) + " \n La direccion del cliente es: " +direccion.get(i));
-
-        out.println("El numero del cliente es: " + i + "el nombre del cliente es: " +nombre.get(i) + " \n La edad del cliente es: " +edad.get(i) + " \n La fecha de nacimiento del cliente es: " +fechaNacimiento.get(i) + " \n La identificación del cliente es: " +identificacion.get(i) + " \n La direccion del cliente es: " +direccion.get(i));
-
-
-
     }
     
     }
@@ -98,11 +86,6 @@ public static void crearCuenta(ArrayList<Integer> numeroCuenta, ArrayList<Intege
 
 out.println("Ingrese el numero de cuenta que desea asignar debe de tener 7 digitos.");
 
-
-out.println("Ingrese el numero de cuenta que desea asignar debe de tener 7 digitos.");
-
-out.println("Ingrese el numero de cuenta que desea asignar debe de tener 7 digitos..");
-
 numeroCuenta.add(Integer.parseInt(System.console().readLine()));
 
 //Calculo para saber la cantidad de digitos que posee el numero que puso el usuario.
@@ -114,12 +97,6 @@ while (x != 0) {
 }
 
 //Comprueba si la cantidad de digitos es valida, sino le dara un mensaje de error.
-
-
-//Comprueba si la cantidad de digitos es valida, sino le dara un mensaje de error.
-
-
-
 if (digitos == 7) {
 
  out.println("Por favor, digite cuanto quiere depositar debe de ser igual o mayor a 50 000 colones.");
@@ -128,28 +105,20 @@ if (saldo.get(i) >= 50000) {
     out.println("Se ha realizado la transferencia exitosamente. \n Su cuenta ha sido creada con exito.");
 }
 
-else {
+} else {
     out.println("Ha digitado un valor no valido, se le devolvera al menu.");
     saldo.add(0);
     i=numClientes+1;
 }
 
-} else {
-
-    out.println("Ha digitado un valor no valido, se le devolvera al menu.");
-    i=numClientes+1;
-}
-
-}
+    }
 
     }
 
 
 
 //Realizar deposito
-
 public static void deposito (ArrayList<Integer> saldo, ArrayList<Integer> numeroCuenta){
-
     out.println("Digite el numero de cuenta al cual desea depositarle.");
     int x=Integer.parseInt(System.console().readLine());
     //Localiza el indice en base al elemento (numero de cuenta)
@@ -270,8 +239,6 @@ public static void menu() throws NumberFormatException, IOException {
         }
 
 }
-
-
 public static void main(String[] args) throws NumberFormatException, IOException
 {
     menu();
