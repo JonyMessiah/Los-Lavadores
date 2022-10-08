@@ -188,8 +188,15 @@ public static void mostrarSaldo(ArrayList<Integer> saldo,  ArrayList<Integer> nu
     out.println("Digite su numero de cuenta");
     int x=Integer.parseInt(System.console().readLine());
     int y= numeroCuenta.indexOf(x);
-    //Localiza el indice en base al elemento (numero de cuenta)
-    out.println("Su saldo actual es: " + saldo.get(y));
+      //Localiza el indice en base al elemento (numero de cuenta)
+    if (saldo.get(y)<=0) {
+
+        out.println("Cuenta no tiene fondos.");
+ 
+    } else {
+    out.println("Su saldo actual es de: " + saldo.get(y) + " colones.");
+
+    }
 }
 //Menu
 
