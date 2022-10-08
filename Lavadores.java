@@ -121,25 +121,27 @@ else {
 
 public static void deposito (ArrayList<Integer> saldo, ArrayList<Integer> numeroCuenta){
 
-
     out.println("Digite el numero de cuenta al cual desea depositarle.");
-
     int x=Integer.parseInt(System.console().readLine());
-
     //Localiza el indice en base al elemento (numero de cuenta)
     int y= numeroCuenta.indexOf(x);
     out.println("Digite la cantidad que desea depositar.");
     //Calculos del nuevo salario.
     int depositoCantidad=Integer.parseInt(System.console().readLine());
+
+    if (depositoCantidad>0) {
     int salarioAnterior=saldo.get(y);
     int nuevoSaldo = salarioAnterior + depositoCantidad;
     //Se reemplaza el anterior elemento por uno nuevo.
     saldo.set(y,nuevoSaldo);
-
-
     out.println("Su nuevo saldo es: " +saldo.get(y));
+    } else {
+        out.println("No se pueden realizar depositos que son 0 o menos. Se le devolvera al menú");
+
+    }
 
 }
+
 
 //Realizar retiro
 
@@ -147,8 +149,21 @@ public static void retiro (ArrayList<Integer> saldo, ArrayList<Integer> numeroCu
 out.println("Digite el numero de cuenta al cual desea retirarle.");
     int x=Integer.parseInt(System.console().readLine());
     saldo.indexOf(x);
+    //Localiza el indice en base al elemento (numero de cuenta)
+    int y= numeroCuenta.indexOf(x);
     out.println("Digite la cantidad que desea retirar.");
+    int retiroCantidad=Integer.parseInt(System.console().readLine());
 
+    if (retiroCantidad>0) {
+    int salarioAnterior=saldo.get(y);
+    int nuevoSaldo = salarioAnterior - retiroCantidad;
+    //Se reemplaza el anterior elemento por uno nuevo.
+    saldo.set(y,nuevoSaldo);
+    out.println("Su nuevo saldo es: " +saldo.get(y));
+    } else {
+        out.println("No se pueden realizar retiros que son 0 o menos. Se le devolvera al menú.");
+
+    }
 }
 //Mostrar saldo
 
