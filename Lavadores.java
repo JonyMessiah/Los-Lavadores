@@ -15,14 +15,15 @@ static ArrayList<String> identificacion = new ArrayList<String>();
 static ArrayList<String> fechaNacimiento = new ArrayList<String>();
 static ArrayList<String> direccion = new ArrayList<String>();
 
+static ArrayList<Integer> saldo = new ArrayList<Integer>();
+static ArrayList<Integer> numeroCuenta = new ArrayList<Integer>();
+
 
 static ArrayList<Integer> saldo = new ArrayList<Integer>();
 static ArrayList<Integer> numeroCuenta = new ArrayList<Integer>();
 
 static ArrayList<Integer> saldo = new ArrayList<Integer>();
-static ArrayList<Integer> numeroCuenta = new ArrayList<Integer>();
 
-static ArrayList<Integer> saldo = new ArrayList<Integer>();
 
 
 static int numClientes = 0;
@@ -72,13 +73,13 @@ public static void listarCliente(ArrayList<String> nombre, ArrayList<String> eda
     out.println("A continuación se presentaran los datos de los clientes registrados actualmente.");
     
     for (int i = 0; i < numClientes; i++) {
-
         out.println("El numero del cliente es: " + i + "\n El nombre del cliente es: " +nombre.get(i) + " \n La edad del cliente es: " +edad.get(i) + " \n La fecha de nacimiento del cliente es: " +fechaNacimiento.get(i) + " \n La identificación del cliente es: " +identificacion.get(i) + " \n La direccion del cliente es: " +direccion.get(i));
-=======
+
 
         out.println("El numero del cliente es: " + i + "\n El nombre del cliente es: " +nombre.get(i) + " \n La edad del cliente es: " +edad.get(i) + " \n La fecha de nacimiento del cliente es: " +fechaNacimiento.get(i) + " \n La identificación del cliente es: " +identificacion.get(i) + " \n La direccion del cliente es: " +direccion.get(i));
 
         out.println("El numero del cliente es: " + i + "el nombre del cliente es: " +nombre.get(i) + " \n La edad del cliente es: " +edad.get(i) + " \n La fecha de nacimiento del cliente es: " +fechaNacimiento.get(i) + " \n La identificación del cliente es: " +identificacion.get(i) + " \n La direccion del cliente es: " +direccion.get(i));
+
 
 
     }
@@ -95,6 +96,8 @@ public static void crearCuenta(ArrayList<Integer> numeroCuenta, ArrayList<Intege
     for (int i = 0; i < numClientes; i++) {
 
 
+out.println("Ingrese el numero de cuenta que desea asignar debe de tener 7 digitos.");
+
 
 out.println("Ingrese el numero de cuenta que desea asignar debe de tener 7 digitos.");
 
@@ -110,9 +113,12 @@ while (x != 0) {
     ++digitos;
 }
 
+//Comprueba si la cantidad de digitos es valida, sino le dara un mensaje de error.
+
 
 //Comprueba si la cantidad de digitos es valida, sino le dara un mensaje de error.
-=======
+
+
 
 if (digitos == 7) {
 
@@ -190,6 +196,14 @@ out.println("Digite el numero de cuenta al cual desea retirarle.");
 }
 //Mostrar saldo
 
+public static void mostrarSaldo(ArrayList<Integer> saldo,  ArrayList<Integer> numeroCuenta) throws IOException {
+
+    out.println("Digite su numero de cuenta");
+    int x=Integer.parseInt(System.console().readLine());
+    int y= numeroCuenta.indexOf(x);
+    //Localiza el indice en base al elemento (numero de cuenta)
+    out.println("Su saldo actual es: " + saldo.get(y));
+}
 //Menu
 
 public static void menu() throws NumberFormatException, IOException {
@@ -239,6 +253,7 @@ public static void menu() throws NumberFormatException, IOException {
 
             case 6: {
                 
+                mostrarSaldo(saldo, numeroCuenta);
 
                 break;
             } 
