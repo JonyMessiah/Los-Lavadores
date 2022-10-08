@@ -212,14 +212,14 @@ public static void menu() throws NumberFormatException, IOException {
 
             case 1: {
 
-                registrarCliente(nombre, identificacion, fechaNacimiento, direccion, identificacion);
+                registrarCliente(nombre, edad, fechaNacimiento, direccion, identificacion);
 
                 break;
             }
 
             case 2: {
 
-                listarCliente(nombre, identificacion, fechaNacimiento, direccion, identificacion);
+                listarCliente(nombre, edad, fechaNacimiento, direccion, identificacion);;
               
                 break;
             }
